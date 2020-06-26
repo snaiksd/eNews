@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0E67749-5515-4301-9A6B-17DFF7C5A263}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eNews.Plugin</RootNamespace>
+    <AssemblyName>eNews.Plugin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BaseSource.cs" />
+    <Compile Include="Google\GoogleNewsSource.cs" />
+    <Compile Include="Advertisement\AdvertisementSource.cs" />
+    <Compile Include="NewsSource.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PTI\PTINewsSource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eNews.Common\eNews.Common.csproj">
+      <Project>{9EA2A65C-004E-4FB7-BCEE-D507967A9439}</Project>
+      <Name>eNews.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eNews.Data.Entities\eNews.Data.Entities.csproj">
+      <Project>{f7269349-e5b7-4406-97dc-a03307565c40}</Project>
+      <Name>eNews.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eNews.Data\eNews.Data.csproj">
+      <Project>{1861016F-338A-4D0A-915B-5108646C44F9}</Project>
+      <Name>eNews.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
